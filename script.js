@@ -53,6 +53,22 @@ const FLAGS = {
     "Sri Lanka": "🇱🇰",
     "Ireland": "🇮🇪",
     "Netherlands": "🇳🇱",
+    "Malaysia": "🇲🇾",
+    "Kuwait": "🇰🇼",
+    "Spain": "🇪🇸",
+    "Bahrain": "🇧🇭",
+    "Qatar": "🇶🇦",
+    "Jersey": "🇯🇪",
+    "Saudi Arabia": "🇸🇦",
+    "Bermuda": "🇧🇲",
+    "Kenya": "🇰🇪",
+    "Tanzania": "🇹🇿",
+    "Portugal": "🇵🇹",
+    "Guernsey": "🇬🇬",
+    "Denmark": "🇩🇰",
+    "Germany": "🇩🇪",
+    "Cayman Islands": "🇰🇾",
+    "Nigeria": "🇳🇬",
 
     "Qualifier Team A": "🏏",
     "Qualifier Team B": "🏏",
@@ -151,15 +167,15 @@ function generateFixtures() {
     */
 
     const qualifierPairs = [
-        ["Qualifier Team A", "Qualifier Team B"],
-        ["Qualifier Team C", "Qualifier Team D"],
-        ["Qualifier Team E", "Qualifier Team F"],
-        ["Qualifier Team G", "Qualifier Team H"],
-        ["Qualifier Team I", "Qualifier Team J"],
-        ["Qualifier Team K", "Qualifier Team L"],
-        ["Qualifier Team M", "Qualifier Team N"],
-        ["Qualifier Team O", "Qualifier Team P"]
-    ];
+    ["Malaysia", "Kuwait"],
+    ["Spain", "Bahrain"],
+    ["Qatar", "Jersey"],
+    ["Saudi Arabia", "Bermuda"],
+    ["Kenya", "Tanzania"],
+    ["Portugal", "Guernsey"],
+    ["Denmark", "Germany"],
+    ["Cayman Islands", "Nigeria"]
+];
 
     qualifierPairs.forEach((pair, index) => {
         addMatch(
