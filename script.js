@@ -992,6 +992,7 @@ function renderLatestResults() {
 
         </article>
     `).join("");
+}
 
 /* =========================================================
    12. FIXTURE LIST
