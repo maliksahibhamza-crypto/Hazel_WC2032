@@ -1,277 +1,781 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071a33"><meta name="description" content="HAZEL T20 World Cup 2032 — tournament fixtures, live standings, match results and knockout progression.">
 
-    <title>HAZEL T20 WORLD CUP 2032</title>
-    <meta name="theme-color" content="#092b52">
-    <meta name="description" content="HAZEL T20 World Cup 2032 — fixtures, results, standings and live tournament tracking.">
+<title>HAZEL T20 World Cup 2032</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<body>
-    <header class="topbar">
-        <a class="brand" href="#home">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="script.js" defer></script>
+
+</head><body><!-- HEADER -->
+<header class="site-header">
+    <div class="container header-inner">
+
+        <a class="brand" href="#home" aria-label="HAZEL home">
             <span class="brand-mark">H</span>
-            <span>
+
+            <span class="brand-copy">
                 <strong>HAZEL</strong>
-                <small>T20 WORLD CUP 2032</small>
+                <small>CRICKET TOURNAMENTS</small>
             </span>
         </a>
 
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation">
-            ☰
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-controls="mainNav"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
-        <nav id="mainNav">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#fixtures" class="nav-link">Fixtures & Results</a>
-            <a href="#points" class="nav-link">Points Table</a>
-            <a href="#teams" class="nav-link">Teams</a>
-            <a href="#play" class="nav-link">Play Match</a>
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <a class="nav-link active" href="#home">Overview</a>
+            <a class="nav-link" href="#fixtures">Fixtures</a>
+            <a class="nav-link" href="#standings">Standings</a>
+            <a class="nav-link" href="#teams">Teams</a>
+            <a class="nav-link" href="#play">Play Match</a>
         </nav>
-    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <span class="eyebrow">INTERNATIONAL CRICKET TOURNAMENT</span>
-                <h1>HAZEL T20<br><span>WORLD CUP 2032</span></h1>
-                <p>Every match matters. Every run counts.</p>
+    </div>
+</header>
 
-                <div class="hero-actions">
-                    <a href="#fixtures" class="btn btn-primary">View Fixtures</a>
-                    <a href="#points" class="btn btn-outline">Points Table</a>
-                </div>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+
+        <div class="container hero-content">
+
+            <div class="hero-topline">
+                <span class="live-dot"></span>
+                <span>INTERNATIONAL CRICKET TOURNAMENT</span>
             </div>
 
-            <div class="hero-side">
-                <div class="trophy">🏆</div>
-                <span>THE ROAD TO GLORY</span>
-                <strong>2032</strong>
-                <small>ONE WORLD. ONE TROPHY.</small>
-            </div>
-        </section>
+            <p class="hero-eyebrow">THE WORLD'S GAME. ONE TROPHY.</p>
 
-        <section class="stats-grid">
-            <article class="stat-card">
-                <span>Total Matches</span>
-                <strong id="totalMatches">0</strong>
-            </article>
+            <h1>
+                T20 WORLD CUP
+                <span>2032</span>
+            </h1>
 
-            <article class="stat-card">
-                <span>Completed</span>
-                <strong id="completedMatches">0</strong>
-            </article>
-
-            <article class="stat-card">
-                <span>Upcoming</span>
-                <strong id="upcomingMatches">0</strong>
-            </article>
-
-            <article class="stat-card">
-                <span>Participating Teams</span>
-                <strong id="totalTeams">32</strong>
-            </article>
-        </section>
-
-        <section class="section" id="latest">
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">TOURNAMENT CENTRE</span>
-                    <h2>Latest Results</h2>
-                </div>
-                <a href="#fixtures" class="text-link">All matches →</a>
-            </div>
-
-            <div id="latestResults" class="result-grid"></div>
-        </section>
-
-        <section id="fixtures" class="section">
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">FULL SCHEDULE</span>
-                    <h2>Fixtures & Results</h2>
-                </div>
-            </div>
-
-            <div class="filter-bar">
-                <input id="fixtureSearch" type="search" placeholder="Search team or match...">
-
-                <select id="stageFilter">
-                    <option value="all">All stages</option>
-                    <option value="Qualifier">Qualifiers</option>
-                    <option value="Group">Group Stage</option>
-                    <option value="Super 16">Super 16</option>
-                    <option value="Quarter-Final">Quarter-Finals</option>
-                    <option value="Semi-Final">Semi-Finals</option>
-                    <option value="Final">Final</option>
-                </select>
-
-                <select id="statusFilter">
-                    <option value="all">All matches</option>
-                    <option value="upcoming">Upcoming</option>
-                    <option value="completed">Completed</option>
-                    <option value="no-result">No result</option>
-                </select>
-            </div>
-
-            <div id="fixtureList" class="fixture-list"></div>
-        </section>
-
-        <section id="points" class="section">
-            <div class="section-heading">
-                <div>
-                    <span class="eyebrow">TEAM STANDINGS</span>
-                    <h2>Points Table</h2>
-                </div>
-            </div>
-
-            <div class="table-controls">
-                <label for="pointsGroup">Select group</label>
-                <select id="pointsGroup">
-                    <option value="all">All groups</option>
-                    <option value="A">Group A</option>
-                    <option value="B">Group B</option>
-                    <option value="C">Group C</option>
-                    <option value="D">Group D</option>
-                    <option value="E">Group E</option>
-                    <option value="F">Group F</option>
-                    <option value="G">Group G</option>
-                    <option value="H">Group H</option>
-                </select>
-            </div>
-
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Team</th>
-                            <th>P</th>
-                            <th>W</th>
-                            <th>L</th>
-                            <th>NR</th>
-                            <th>Pts</th>
-                            <th>NRR</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="pointsBody"></tbody>
-                </table>
-            </div>
-
-            <p class="table-note">
-                The top two teams in each group qualify for the Super 16.
-                Standings are calculated automatically from recorded group-stage results.
+            <p class="hero-description">
+                Sixteen teams. One champion.
+                Follow every fixture, record every result
+                and watch the road to the final unfold.
             </p>
-        </section>
 
-        <section id="teams" class="section">
-            <div class="section-heading">
+            <div class="hero-actions">
+                <a href="#fixtures" class="btn btn-primary">
+                    Explore Fixtures
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <a href="#standings" class="btn btn-outline">
+                    View Standings
+                </a>
+            </div>
+
+            <div class="hero-bottom">
                 <div>
-                    <span class="eyebrow">THE CONTENDERS</span>
-                    <h2>Participating Teams</h2>
+                    <strong>2032</strong>
+                    <span>TOURNAMENT YEAR</span>
+                </div>
+
+                <div>
+                    <strong>8</strong>
+                    <span>GROUPS</span>
+                </div>
+
+                <div>
+                    <strong>16</strong>
+                    <span>QUALIFIER TEAMS</span>
+                </div>
+
+                <div>
+                    <strong>71</strong>
+                    <span>TOTAL FIXTURES</span>
                 </div>
             </div>
 
-            <div id="teamGrid" class="team-grid"></div>
-        </section>
+        </div>
+    </section>
 
-        <section id="play" class="section">
-            <div class="section-heading">
+
+    <!-- TOURNAMENT STATISTICS -->
+    <section class="stats-section">
+        <div class="container">
+
+            <div class="section-heading compact-heading">
                 <div>
-                    <span class="eyebrow">MANUAL SCORE ENTRY</span>
-                    <h2>Play Match</h2>
+                    <span class="section-kicker">TOURNAMENT CENTRE</span>
+                    <h2>The Numbers</h2>
                 </div>
+
+                <span class="season-badge">SEASON 2032</span>
             </div>
 
-            <div class="editor-card">
-                <div class="notice">
-                    Scores are saved in this browser. Entering a completed score
-                    automatically updates the result, points table and NRR.
-                </div>
+            <div class="stats-grid">
 
-                <form id="scoreForm">
-                    <label for="matchSelect">Select fixture</label>
-                    <select id="matchSelect" required></select>
+                <article class="stat-card">
+                    <div class="stat-icon icon-blue">🏏</div>
 
-                    <div id="selectedMatchInfo" class="selected-match-info"></div>
-
-                    <div class="score-columns">
-                        <div class="score-panel">
-                            <h3 id="teamAHeading">Team A</h3>
-
-                            <label for="runsA">Runs</label>
-                            <input id="runsA" type="number" min="0" max="999" required>
-
-                            <label for="wicketsA">Wickets lost</label>
-                            <input id="wicketsA" type="number" min="0" max="10" required>
-
-                            <label for="oversA">Overs faced</label>
-                            <input id="oversA" type="text" inputmode="decimal"
-                                   placeholder="Example: 19.4" required>
-                        </div>
-
-                        <div class="score-panel">
-                            <h3 id="teamBHeading">Team B</h3>
-
-                            <label for="runsB">Runs</label>
-                            <input id="runsB" type="number" min="0" max="999" required>
-
-                            <label for="wicketsB">Wickets lost</label>
-                            <input id="wicketsB" type="number" min="0" max="10" required>
-
-                            <label for="oversB">Overs faced</label>
-                            <input id="oversB" type="text" inputmode="decimal"
-                                   placeholder="Example: 20.0" required>
-                        </div>
+                    <div class="stat-info">
+                        <span>Total Matches</span>
+                        <strong id="totalMatches">71</strong>
+                        <small>Across all stages</small>
                     </div>
+                </article>
 
-                    <label for="matchStatus">Match status</label>
-                    <select id="matchStatus">
-                        <option value="completed">Completed</option>
-                        <option value="no-result">No result — rain/abandoned</option>
+                <article class="stat-card">
+                    <div class="stat-icon icon-green">✓</div>
+
+                    <div class="stat-info">
+                        <span>Matches Completed</span>
+                        <strong id="completedMatches">0</strong>
+                        <small>Results recorded</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon icon-orange">◷</div>
+
+                    <div class="stat-info">
+                        <span>Upcoming Matches</span>
+                        <strong id="upcomingMatches">71</strong>
+                        <small>Awaiting results</small>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon icon-purple">🌍</div>
+
+                    <div class="stat-info">
+                        <span>Group Entries</span>
+                        <strong id="totalTeams">32</strong>
+                        <small>Including qualifier slots</small>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LATEST RESULTS -->
+    <section class="section section-muted" id="results">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">MATCH CENTRE</span>
+                    <h2>Latest Results</h2>
+                    <p>Recent match results from your tournament.</p>
+                </div>
+
+                <a href="#fixtures" class="text-link">
+                    All Fixtures <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <div class="results-grid" id="latestResults">
+
+                <div class="empty-state">
+                    No results recorded yet. Use Play Match to enter the first score.
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FIXTURES -->
+    <section class="section" id="fixtures">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">THE ROAD TO GLORY</span>
+                    <h2>Match Fixtures</h2>
+                    <p>Search, filter and manage all tournament matches.</p>
+                </div>
+
+                <span class="section-count">71 FIXTURES</span>
+            </div>
+
+            <div class="filter-panel">
+
+                <div class="search-field">
+                    <label for="fixtureSearch">Search matches</label>
+
+                    <div class="input-with-icon">
+                        <span aria-hidden="true">⌕</span>
+
+                        <input
+                            type="search"
+                            id="fixtureSearch"
+                            placeholder="Search team, group or match..."
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="filter-field">
+                    <label for="stageFilter">Tournament stage</label>
+
+                    <select id="stageFilter">
+                        <option value="all">All stages</option>
+                        <option value="Qualifier">Qualifiers</option>
+                        <option value="Group Stage">Group Stage</option>
+                        <option value="Super 16">Super 16</option>
+                        <option value="Quarter-Final">Quarter-Finals</option>
+                        <option value="Semi-Final">Semi-Finals</option>
+                        <option value="Final">Final</option>
                     </select>
+                </div>
 
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save Match Result</button>
-                        <button type="button" id="resetScore" class="btn btn-light">
-                            Clear Form
-                        </button>
+                <div class="filter-field">
+                    <label for="statusFilter">Match status</label>
+
+                    <select id="statusFilter">
+                        <option value="all">All statuses</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="completed">Completed</option>
+                        <option value="no-result">No result</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="fixture-list" id="fixtureList">
+
+                <div class="empty-state">
+                    Loading fixtures...
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- POINTS TABLE -->
+    <section class="section section-muted" id="standings">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">THE RACE FOR SUPER 16</span>
+                    <h2>Group Standings</h2>
+                    <p>Points, wins, no-results and net run rate.</p>
+                </div>
+            </div>
+
+            <div class="standings-toolbar">
+
+                <div class="standings-note">
+                    <span class="note-dot"></span>
+                    <span>Top two positions are qualification spots.</span>
+                </div>
+
+                <div class="filter-field group-filter">
+                    <label for="pointsGroup">Select group</label>
+
+                    <select id="pointsGroup">
+                        <option value="all">All Groups</option>
+                        <option value="A">Group A</option>
+                        <option value="B">Group B</option>
+                        <option value="C">Group C</option>
+                        <option value="D">Group D</option>
+                        <option value="E">Group E</option>
+                        <option value="F">Group F</option>
+                        <option value="G">Group G</option>
+                        <option value="H">Group H</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="table-card">
+                <div class="table-scroll">
+
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>TEAM</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>L</th>
+                                <th>NR</th>
+                                <th>PTS</th>
+                                <th>NRR</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="pointsBody">
+                            <tr>
+                                <td colspan="9" class="table-loading">
+                                    Loading standings...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="table-legend">
+                    <span class="legend-item">
+                        <span class="legend-dot"></span>
+                        Top two positions
+                    </span>
+
+                    <span class="legend-description">
+                        P: Played · W: Won · L: Lost · NR: No Result · PTS: Points
+                    </span>
+                </div>
+            </div>
+
+            <div class="rules-grid">
+
+                <article class="rule-card">
+                    <span class="rule-number">01</span>
+                    <div>
+                        <strong>Win</strong>
+                        <p>Two points for the winning team.</p>
+                    </div>
+                </article>
+
+                <article class="rule-card">
+                    <span class="rule-number">02</span>
+                    <div>
+                        <strong>No Result</strong>
+                        <p>One point for each team.</p>
+                    </div>
+                </article>
+
+                <article class="rule-card">
+                    <span class="rule-number">03</span>
+                    <div>
+                        <strong>Net Run Rate</strong>
+                        <p>Calculated from recorded runs and overs.</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TEAMS -->
+    <section class="section" id="teams">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">NATIONS ON THE FIELD</span>
+                    <h2>Participating Teams</h2>
+                    <p>Eight groups, with qualifier winners filling their designated slots.</p>
+                </div>
+            </div>
+
+            <div class="team-grid" id="teamGrid">
+
+                <div class="empty-state">
+                    Loading participating teams...
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PLAY MATCH -->
+    <section class="section section-dark" id="play">
+        <div class="container">
+
+            <div class="section-heading section-heading-light">
+                <div>
+                    <span class="section-kicker">OFFICIAL SCORING DESK</span>
+                    <h2>Play Match</h2>
+                    <p>Record a result and update the tournament dashboard.</p>
+                </div>
+
+                <span class="admin-badge">
+                    <span class="live-dot"></span>
+                    LOCAL SCORING
+                </span>
+            </div>
+
+            <div class="scoring-layout">
+
+                <!-- MATCH SELECTION -->
+                <aside class="scoring-sidebar">
+
+                    <div class="panel-label">MATCH SELECTION</div>
+
+                    <div class="form-field">
+                        <label for="matchSelect">Choose fixture</label>
+
+                        <select id="matchSelect"></select>
                     </div>
 
-                    <p id="formMessage" class="form-message" role="status"></p>
-                </form>
+                    <div class="selected-match-box">
+
+                        <span class="selected-match-label">
+                            SELECTED FIXTURE
+                        </span>
+
+                        <p id="selectedMatchInfo">
+                            Select a match to begin.
+                        </p>
+
+                        <div class="selection-divider"></div>
+
+                        <div class="selected-stage-note">
+                            <span class="note-icon">ⓘ</span>
+
+                            <p>
+                                Complete earlier rounds before recording
+                                results for dependent knockout fixtures.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="scoring-reminder">
+                        <strong>Scoring reminders</strong>
+
+                        <ul>
+                            <li>Enter overs using cricket notation, e.g. 19.4.</li>
+                            <li>Use the No Result option for abandoned matches.</li>
+                            <li>Saving an earlier result clears affected later-round results.</li>
+                        </ul>
+                    </div>
+
+                </aside>
+
+
+                <!-- SCORE FORM -->
+                <div class="score-panel">
+
+                    <form id="scoreForm">
+
+                        <div class="panel-label">MATCH SCORECARD</div>
+
+                        <div class="scoreboard">
+
+                            <article class="score-team-card">
+
+                                <div class="score-team-heading">
+                                    <span class="score-team-label">TEAM A</span>
+                                    <span class="score-mini-icon">A</span>
+                                </div>
+
+                                <h3 id="teamAHeading">🏏 Team A</h3>
+
+                                <div class="score-input-grid">
+
+                                    <div class="form-field">
+                                        <label for="runsA">Runs</label>
+
+                                        <input
+                                            type="number"
+                                            id="runsA"
+                                            min="0"
+                                            max="999"
+                                            step="1"
+                                            inputmode="numeric"
+                                            placeholder="185">
+                                    </div>
+
+                                    <div class="form-field">
+                                        <label for="wicketsA">Wickets</label>
+
+                                        <input
+                                            type="number"
+                                            id="wicketsA"
+                                            min="0"
+                                            max="10"
+                                            step="1"
+                                            inputmode="numeric"
+                                            placeholder="6">
+                                    </div>
+
+                                    <div class="form-field overs-field">
+                                        <label for="oversA">Overs</label>
+
+                                        <input
+                                            type="text"
+                                            id="oversA"
+                                            inputmode="decimal"
+                                            maxlength="5"
+                                            placeholder="19.4">
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+
+                            <div class="score-divider">
+                                <span>VS</span>
+                            </div>
+
+
+                            <article class="score-team-card">
+
+                                <div class="score-team-heading">
+                                    <span class="score-team-label">TEAM B</span>
+                                    <span class="score-mini-icon">B</span>
+                                </div>
+
+                                <h3 id="teamBHeading">🏏 Team B</h3>
+
+                                <div class="score-input-grid">
+
+                                    <div class="form-field">
+                                        <label for="runsB">Runs</label>
+
+                                        <input
+                                            type="number"
+                                            id="runsB"
+                                            min="0"
+                                            max="999"
+                                            step="1"
+                                            inputmode="numeric"
+                                            placeholder="172">
+                                    </div>
+
+                                    <div class="form-field">
+                                        <label for="wicketsB">Wickets</label>
+
+                                        <input
+                                            type="number"
+                                            id="wicketsB"
+                                            min="0"
+                                            max="10"
+                                            step="1"
+                                            inputmode="numeric"
+                                            placeholder="172">
+                                        </div>
+
+                                        <div class="form-field">
+                                            <label for="wicketsB">Wickets</label>
+
+                                            <input
+                                                type="number"
+                                                id="wicketsB"
+                                                min="0"
+                                                max="10"
+                                                step="1"
+                                                inputmode="numeric"
+                                                placeholder="8">
+                                        </div>
+
+                                        <div class="form-field overs-field">
+                                            <label for="oversB">Overs</label>
+
+                                            <input
+                                                type="text"
+                                                id="oversB"
+                                                inputmode="decimal"
+                                                maxlength="5"
+                                                placeholder="20.0">
+                                        </div>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+
+
+                            <div class="form-field match-status-field">
+                                <label for="matchStatus">Match result type</label>
+
+                                <select id="matchStatus">
+                                    <option value="completed">Completed — enter scores</option>
+                                    <option value="no-result">No Result — abandoned / washed out</option>
+                                </select>
+
+                                <small>
+                                    A completed match requires both teams' scores.
+                                    A no-result match awards one point to each team.
+                                </small>
+                            </div>
+
+
+                            <div
+                                class="form-message"
+                                id="formMessage"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+
+                            <div class="score-actions">
+
+                                <button
+                                    class="btn btn-primary save-result-btn"
+                                    type="submit">
+                                    Save Match Result
+                                    <span aria-hidden="true">→</span>
+                                </button>
+
+                                <button
+                                    class="btn btn-secondary"
+                                    type="button"
+                                    id="resetScore">
+                                    Clear Form
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
             </div>
         </section>
 
-        <section class="section utility-section">
-            <div>
-                <span class="eyebrow">PERSONAL BROWSER DATA</span>
-                <h2>Manage Tournament Data</h2>
-                <p>Your results are stored locally in this browser.</p>
-            </div>
 
-            <div class="utility-actions">
-                <button id="exportData" class="btn btn-light">Export Backup</button>
-                <button id="importButton" class="btn btn-light">Import Backup</button>
-                <input type="file" id="importFile" accept=".json,application/json" hidden>
-                <button id="resetTournament" class="btn btn-danger">Reset Tournament</button>
+        <!-- DATA MANAGEMENT -->
+        <section class="section data-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">TOURNAMENT SETTINGS</span>
+                        <h2>Data Management</h2>
+                        <p>Back up your saved results or restore them later.</p>
+                    </div>
+                </div>
+
+                <div class="data-panel">
+
+                    <div class="data-copy">
+                        <div class="data-icon">▤</div>
+
+                        <div>
+                            <strong>Your Tournament Data</strong>
+
+                            <p>
+                                Results are saved in this browser.
+                                Export a backup before clearing browser data
+                                or moving to another device.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="data-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-light"
+                            id="exportData">
+                            ↓ Export Backup
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-dark"
+                            id="importButton">
+                            ↑ Import Backup
+                        </button>
+
+                        <input
+                            type="file"
+                            id="importFile"
+                            accept=".json,application/json"
+                            hidden>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger-outline"
+                            id="resetTournament">
+                            Reset Tournament
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="storage-notice">
+                    <span class="notice-symbol">ⓘ</span>
+
+                    <p>
+                        <strong>Local browser storage:</strong>
+                        this version does not use a server or cloud database.
+                        Tournament results are not automatically shared across devices.
+                    </p>
+                </div>
+
             </div>
         </section>
+
     </main>
 
-    <footer>
-        <div class="footer-brand">HAZEL T20 WORLD CUP 2032</div>
-        <p>Independent fictional cricket tournament project.</p>
-        <small>Personal use • Browser-based storage</small>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+
+            <a class="brand footer-brand" href="#home">
+                <span class="brand-mark">H</span>
+
+                <span class="brand-copy">
+                    <strong>HAZEL</strong>
+                    <small>CRICKET TOURNAMENTS</small>
+                </span>
+            </a>
+
+            <p>
+                HAZEL T20 World Cup 2032
+                <span>•</span>
+                Independent tournament simulation
+            </p>
+
+            <a href="#home" class="back-to-top">
+                Back to top ↑
+            </a>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <span>© 2032 HAZEL Tournament Project</span>
+            <span>Made for the love of cricket.</span>
+        </div>
     </footer>
 
-    <div id="toast" class="toast" role="status"></div>
 
-    <script src="script.js"></script>
+    <!-- TOAST -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite">
+    </div>
+
 </body>
-  </html>
+</html>
